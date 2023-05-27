@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Hi, Sonal!',
+                            Text('Hi, Ankush!',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                               height: 8,
                             ),
                             Text(
-                              "6th May 2023",
+                              "27th May 2023",
                               style: TextStyle(color: Colors.purple[100]),
                             ),
                           ],
