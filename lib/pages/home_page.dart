@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:mentalhealthapp/util/emoticon_face.dart';
+import 'package:mentalhealthapp/util/exercise_tile.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+  const HomePage({Key? key}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -14,12 +14,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.purple[800],
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.message), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
           ],
         ),
         body: SafeArea(
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Text(
                               "6th May 2023",
-                              style: TextStyle(color: Colors.blue[100]),
+                              style: TextStyle(color: Colors.purple[100]),
                             ),
                           ],
                         ),
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
 
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.blue[600],
+                              color: Colors.purple[600],
                               borderRadius: BorderRadius.circular(12)),
                           padding: EdgeInsets.all(16),
                           child: Icon(
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     // search bar
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue[600],
+                        color: Colors.purple[600],
                         borderRadius: BorderRadius.circular(12),
                       ),
                       padding: EdgeInsets.all(12),
@@ -195,8 +195,13 @@ class _HomePageState extends State<HomePage> {
               ),
               Expanded(
                 child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24)),
+                    color: Colors.grey[200],
+                  ),
                   padding: EdgeInsets.all(25),
-                  color: Colors.grey[100],
                   child: Center(
                     child: Column(
                       children: [
@@ -212,8 +217,47 @@ class _HomePageState extends State<HomePage> {
                             Icon(Icons.more_horiz)
                           ],
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
 
                         // listview of excercises
+                        Expanded(
+                          child: ListView(
+                            children: [
+                              ExerciseTile(
+                                icon: Icons.record_voice_over,
+                                excerciseName: 'Speaking Skills',
+                                numberOfExcercises: 16,
+                                color: Colors.orange,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.book,
+                                excerciseName: 'Reading Skills',
+                                numberOfExcercises: 6,
+                                color: Colors.teal,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.self_improvement,
+                                excerciseName: 'Self-Care Techniques',
+                                numberOfExcercises: 3,
+                                color: Colors.pink,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.spa,
+                                excerciseName: 'Mindfulness and Meditation',
+                                numberOfExcercises: 12,
+                                color: Colors.blue,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.sentiment_satisfied_alt,
+                                excerciseName: 'Emotional Intelligence',
+                                numberOfExcercises: 5,
+                                color: Colors.green,
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
